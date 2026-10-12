@@ -6,15 +6,15 @@
   "skill_invoked": [
     "korotkina-coworkers:custom-heirloom-inquiries"
   ],
-  "output": "## Draft reply\n\nDear Miriam,\n\nThank you for writing, and I'm sorry about your mother. Her necklace clearly means a great deal to you, and adding your wedding date to it is a lovely thought.\n\nI see clients by appointment, so we can look at the necklace together without hurry. For the insurance appraisal, please book the 15-minute Appraisals appointment and choose the time that suits you: https://app.acuityscheduling.com/schedule.php?owner=16919152\n\nI will write to you separately about the engraving.\n\nTwo small questions. Could you bring the necklace with you? And has it been appraised before?\n\nWarmly,\nAlina\n\n## Prep note for Alina\n\n**Known:** Miriam inherited her late mother's diamond necklace (diamonds as described by the client). She wants an appraisal for insurance. She also asks about engraving their wedding date on the clasp.\n\n**Not known yet:** Metal, stone details, and the necklace's condition. Whether it has been appraised before. Whether the clasp can take an engraving. Whether she has a date in mind.\n\n**Decisions for you:** Whether and how to offer the engraving, and what to say about it in your separate reply. Whether to ask for photos first.\n\n**Suggested appointment:** Appraisals (15 min), because the main request is an insurance appraisal. The engraving can be discussed when you write back or at the appointment.",
+  "output": "## Draft reply\n\nDear Miriam,\n\nThank you for writing. I'm sorry about your mother. It's touching that you want to protect her necklace and add your wedding date to it.\n\nThe best first step is the Appraisals appointment, which is booked as 15 minutes at my showroom. I work by appointment only, and I need to see the necklace in person. Here is the booking link, where you can choose a time that suits you: https://app.acuityscheduling.com/schedule.php?owner=16919152\n\nI offer custom engraving of names, dates, initials or a short quote. We can talk through the clasp in person at the same appointment.\n\nWould you be able to bring the necklace with you? And is there a date you have in mind for the engraving?\n\nWarmly,\nAlina\n\n## Prep note for Alina\n\n**Known:** Inherited diamond necklace from client's late mother (diamonds as described by the client). Wants an appraisal for insurance. Also asks about engraving their wedding date on the clasp. No date given.\n\n**Not known yet:** Metal, clasp type and condition, whether the client can come in person, any deadline, the wedding date wording.\n\n**Decisions for you:** Whether engraving on this clasp is feasible, and whether to handle it at the Appraisals appointment or separately. I told the client it can be discussed at the appointment, so adjust if you prefer otherwise. Whether you want photos first.\n\n**Suggested appointment:** Appraisals (15 min), since the main request is an insurance appraisal.",
   "model": "claude-sonnet-5-5",
   "models_used": [
     "claude-sonnet-5-5"
   ],
   "claude_code_version": "2.1.296",
   "plugin": "korotkina-coworkers",
-  "plugin_version": "1.1.0",
-  "plugin_zip_sha256": "0bf4c54441ea0dc2880d873c484f73f40777306cbc5d4700defcc31d3c5b3024",
+  "plugin_version": "1.2.0",
+  "plugin_zip_sha256": "2b47253a57bde96f061763940f7c57895ba00236b31f4fd84cfa0ca7688ddaf2",
   "skills_in_context": [
     "korotkina-coworkers:custom-heirloom-inquiries",
     "korotkina-coworkers:repair-inquiries",
@@ -26,5 +26,5 @@
     "Skill"
   ],
   "auth": "Claude subscription (OAuth), apiKeySource=none",
-  "recorded_at_utc": "2026-10-12T13:40:05Z"
+  "recorded_at_utc": "2026-10-12T13:59:55Z"
 }

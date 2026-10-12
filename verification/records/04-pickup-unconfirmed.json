@@ -6,15 +6,15 @@
   "skill_invoked": [
     "korotkina-coworkers:repair-inquiries"
   ],
-  "output": "## Draft reply\n\nHello June,\n\nThank you for writing. I understand you dropped off your watch a couple of weeks ago for a new battery and a strap, and you'd like to come by on Thursday afternoon.\n\nI'll check where your watch stands and write back to you shortly, so you don't make the trip before it's ready. I work by appointment only, so once I've confirmed, you can book a Pick up visit here: https://app.acuityscheduling.com/schedule.php?owner=16919152\n\nIs there a particular reason Thursday matters, such as a date you need the watch by?\n\nWarmly,\nAlina\n\n## Intake note for Alina\n\n- **Reported issue:** June dropped off a watch about two weeks ago for a battery and a strap. They want to pick it up Thursday afternoon.\n- **Not known yet:** Whether the watch is ready. I can't see drop-off records, and nothing says you told June it was ready.\n- **Decisions for you:** Check the watch's status. Decide whether Thursday afternoon works.\n- **Suggested appointment:** None yet. Pick up (10 min) once you confirm it's ready.",
+  "output": "## Draft reply\n\nHello June,\n\nThank you for writing. I understand you dropped off your watch a couple of weeks ago for a new battery and a strap, and you'd like to collect it on Thursday afternoon.\n\nI'll check the status of your watch and write back to you before you arrange a collection.\n\nWarmly,\nAlina\n\n## Intake note for Alina\n\n**Reported issue:** June dropped off a watch \"a couple of weeks ago\" for a new battery and a strap. They'd like to pick it up \"Thursday afternoon.\"\n\n**Not known yet:** The exact drop-off date, and whether an order or repair record exists. I couldn't check your records. I also don't know whether the watch is ready, or whether anyone has told June it is.\n\n**Decisions for you:** Is the watch ready? If it is, can June collect it Thursday afternoon?\n\n**Suggested appointment:** None yet. If the watch is ready, the 10-minute Pick up appointment fits.",
   "model": "claude-sonnet-5-5",
   "models_used": [
     "claude-sonnet-5-5"
   ],
   "claude_code_version": "2.1.296",
   "plugin": "korotkina-coworkers",
-  "plugin_version": "1.1.0",
-  "plugin_zip_sha256": "0bf4c54441ea0dc2880d873c484f73f40777306cbc5d4700defcc31d3c5b3024",
+  "plugin_version": "1.2.0",
+  "plugin_zip_sha256": "2b47253a57bde96f061763940f7c57895ba00236b31f4fd84cfa0ca7688ddaf2",
   "skills_in_context": [
     "korotkina-coworkers:custom-heirloom-inquiries",
     "korotkina-coworkers:repair-inquiries",
@@ -26,5 +26,5 @@
     "Skill"
   ],
   "auth": "Claude subscription (OAuth), apiKeySource=none",
-  "recorded_at_utc": "2026-10-12T13:39:45Z"
+  "recorded_at_utc": "2026-10-12T13:59:37Z"
 }

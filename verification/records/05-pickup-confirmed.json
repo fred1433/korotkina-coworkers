@@ -6,15 +6,15 @@
   "skill_invoked": [
     "korotkina-coworkers:repair-inquiries"
   ],
-  "output": "## Draft reply\n\nHi Ada,\n\nThank you for your note. I'm glad to hear from you about collecting your necklace with the new clasp.\n\nI work by appointment, so the easiest way is to book a Pick up appointment here: https://app.acuityscheduling.com/schedule.php?owner=16919152\n\nIt takes about 10 minutes, and you can choose a time that suits you. I'll check on my side that everything is in order for your visit. If you have any trouble booking, call me at 206-605-1510 or reply here.\n\nThe showroom is at The Winslow Showroom, Harbor Square, 752 Winslow Way East, Bainbridge Island.\n\nWarmly,\nAlina\n\n## Intake note for Alina\n\n- **Reported issue:** Ada says you emailed yesterday that her necklace, with a new clasp, is ready. She wants to book a collection time.\n- **Not known yet:** I can't see your records or the email, so I haven't confirmed the necklace is ready or that the email was sent.\n- **Decisions for you:** Check the necklace is ready before Ada comes in. Edit the reply if it isn't.\n- **Suggested appointment:** Pick up (10 min). Ada says the studio told them the piece is ready.",
+  "output": "## Draft reply\n\nHello Ada,\n\nThank you for your note. I'm glad to hear from you about your necklace with the new clasp.\n\nTo collect it, please book the 10-minute Pick up appointment here:\nhttps://app.acuityscheduling.com/schedule.php?owner=16919152\n\nI work by appointment only, so booking a time that suits you is the best way to arrange it. The showroom is at The Winslow Showroom at Harbor Square, 752 Winslow Way East, Bainbridge Island.\n\nIf anything doesn't work with the booking page, call me at 206-605-1510 or reply here.\n\nWarmly,\nAlina\n\n## Intake note for Alina\n\n- **Reported issue:** Ada says you emailed yesterday that her necklace, with the new clasp, is ready. She wants to book a collection time.\n- **Not known yet:** Order or drop-off details. I can't see your records or that email.\n- **Decisions for you:** Please check that the necklace is ready and that you did send that email. I didn't confirm either in the reply.\n- **Suggested appointment:** Pick up (10 minutes), because Ada says you have already told her it's ready.",
   "model": "claude-sonnet-5-5",
   "models_used": [
     "claude-sonnet-5-5"
   ],
   "claude_code_version": "2.1.296",
   "plugin": "korotkina-coworkers",
-  "plugin_version": "1.1.0",
-  "plugin_zip_sha256": "0bf4c54441ea0dc2880d873c484f73f40777306cbc5d4700defcc31d3c5b3024",
+  "plugin_version": "1.2.0",
+  "plugin_zip_sha256": "2b47253a57bde96f061763940f7c57895ba00236b31f4fd84cfa0ca7688ddaf2",
   "skills_in_context": [
     "korotkina-coworkers:custom-heirloom-inquiries",
     "korotkina-coworkers:repair-inquiries",
@@ -26,5 +26,5 @@
     "Skill"
   ],
   "auth": "Claude subscription (OAuth), apiKeySource=none",
-  "recorded_at_utc": "2026-10-12T13:39:53Z"
+  "recorded_at_utc": "2026-10-12T13:59:45Z"
 }

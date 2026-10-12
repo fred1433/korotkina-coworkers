@@ -31,6 +31,12 @@ for z in page-original-custom-heirloom-inquiries.zip page-edited-shorter-no-note
   mkdir -p "$W/${z%.zip}" && unzip -q "$D/$z" -d "$W/${z%.zip}"
   echo "- $z: \`$("$SKILLS_REF" validate "$W/${z%.zip}/custom-heirloom-inquiries" 2>&1 | sed "s|$W/||g")\`"
 done
+echo; echo "## 3b. Edited on the page with a description containing a colon (Draft a reply. Use when: a client asks about a repair.)"; echo
+mkdir -p "$W/colon" && unzip -q "$D/page-edited-colon-description-repair-inquiries.zip" -d "$W/colon"
+echo '```'; sed -n '1,4p' "$W/colon/repair-inquiries/SKILL.md"; echo '```'
+echo "- skills-ref: \`$("$SKILLS_REF" validate "$W/colon/repair-inquiries" 2>&1 | sed "s|$W/||g")\`"
+mkdir -p "$W/wrap/colon-check/.claude-plugin/" "$W/wrap/colon-check/skills" && printf '{"name":"colon-check","version":"0.0.1","description":"Wrapper to validate one downloaded skill","author":{"name":"The AI Pipe"}}' > "$W/wrap/colon-check/.claude-plugin/plugin.json" && cp -R "$W/colon/repair-inquiries" "$W/wrap/colon-check/skills/"
+echo "- claude plugin validate (skill wrapped in a test plugin): \`$(~/.local/bin/claude plugin validate "$W/wrap/colon-check" 2>&1 | tail -1)\`"
 echo; echo "## 4a. Plugin ZIP loaded as downloaded (--plugin-dir <zip>), case 03 (urgent resize)"; echo
 mkdir -p "$W/run1" && (cd "$W/run1" && $CC --setting-sources "" --plugin-dir "$D/page-korotkina-coworkers-plugin.zip" "$(prompt 03-urgent-guarantee)" </dev/null > "$W/r1.jsonl"); summ "$W/r1.jsonl"
 echo; echo "## 4b. Original skill ZIP from the page, unzipped into a project's .claude/skills, case 01"; echo

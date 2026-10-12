@@ -13,7 +13,7 @@ Setup has three parts: AWS (once), Claude Desktop on one computer, then the assi
 1. **Sign in to the AWS console** with a user allowed to manage Amazon Bedrock and IAM.
    Source: [Deploy Claude Desktop on 3P with Amazon Bedrock](https://claude.com/docs/third-party/claude-desktop/bedrock), section "Set up AWS".
 
-2. **Pick one AWS region** for Claude (for example `us-west-2`) and keep it for every step below. Model access, API keys and the app setting all work per region.
+2. **Choose the AWS region for Bedrock** (for example `us-west-2`) and use it for model access, the Bedrock API key and the app's **AWS region** setting, which all work per region. If you use AWS sign-in (IAM Identity Center), its **AWS SSO region** is the region where IAM Identity Center is configured; it may be different.
    Sources: same page ("Access is granted per region"); [Amazon Bedrock API keys](https://docs.aws.amazon.com/bedrock/latest/userguide/api-keys.html) ("A long-term key works only in the Region you generated it in").
 
 3. **Turn on access to the Claude models.** Today, AWS enables most models by default, but for Anthropic models a first-time account must submit a short use-case form: in the [Amazon Bedrock console](https://console.aws.amazon.com/bedrock/), open the model catalog, select an Anthropic Claude model, and submit the use case details (a description of the use and a website URL). Access is usually granted right away; it can stay pending for a while, and AWS sends an email when it is ready. The account also needs a valid payment method for AWS Marketplace.
@@ -22,7 +22,7 @@ Setup has three parts: AWS (once), Claude Desktop on one computer, then the assi
 
 4. **Choose how the app signs in to AWS.** Anthropic lists four ways. For one computer, the two that fit:
    - **Amazon Bedrock API key** (simplest, described as "Proof of concept, single team"). In the Bedrock console, left menu **API keys**, then generate a key. AWS recommends long-term keys "only for exploration"; short-term keys last up to 12 hours. The identity behind the key must be allowed `bedrock:CallWithBearerToken`.
-   - **In-app AWS sign-in** through IAM Identity Center (recommended when several people will use it, since each person signs in with their own identity). Requires a permission set that allows `bedrock:InvokeModel` and `bedrock:InvokeModelWithResponseStream`.
+   - **In-app AWS sign-in** through IAM Identity Center (recommended when several people will use it, since each person signs in with their own identity). Requires a permission set that allows `bedrock:InvokeModel` and `bedrock:InvokeModelWithResponseStream`, assigned to the AWS account that hosts Bedrock and to the users or groups who will sign in. The app's **AWS SSO role name** field takes that permission set's name.
    Sources: [Bedrock page, "Choose an authentication approach" and "Prepare devices"](https://claude.com/docs/third-party/claude-desktop/bedrock); [Amazon Bedrock API keys](https://docs.aws.amazon.com/bedrock/latest/userguide/api-keys.html).
 
 5. **Note the model ID** you will use, as an inference-profile ID, for example `us.anthropic.claude-sonnet-5`. With an API key the app can discover the models by itself; with in-app sign-in the list is required.
@@ -38,12 +38,12 @@ Source: [Installation and setup, "Single-machine setup"](https://claude.com/docs
 
 7. **Install Claude Desktop** from [claude.com/download](https://claude.com/download).
 
-8. **Open the app without signing in.** Anthropic's wording: "Do not sign in or create an Anthropic account." From the macOS menu bar choose **Help > Troubleshooting > Enable Developer Mode**, then **Developer > Configure Third-Party Inference...**
+8. **Open the app without signing in.** Anthropic's wording: "Do not sign in or create an Anthropic account." From the macOS menu bar (on Windows, the application menu ☰ in the top-left of the login screen) choose **Help > Troubleshooting > Enable Developer Mode**, then **Developer > Configure Third-Party Inference...**
 
 9. **Fill in the Connection section.** Set **Inference provider** to **Bedrock**, then in the **Bedrock credentials** card:
    - **AWS region**: the region from step 2.
    - With an API key: paste it in **AWS bearer token**.
-   - With in-app AWS sign-in: fill **AWS SSO start URL**, **AWS SSO region**, **AWS SSO account ID**, **AWS SSO role name** (all four are required).
+   - With in-app AWS sign-in: fill **AWS SSO start URL**, **AWS SSO region** (the IAM Identity Center region), **AWS SSO account ID**, **AWS SSO role name** (the permission set's name). All four are required.
    - Under **Models**, add the model ID from step 5.
    Source: [Bedrock page, "Configure the app"](https://claude.com/docs/third-party/claude-desktop/bedrock).
 
@@ -62,7 +62,7 @@ Source: [Installation and setup, "Single-machine setup"](https://claude.com/docs
     Sources: [Plugin structure and testing, "Test the plugin on each surface"](https://claude.com/docs/plugins/build); [MCP, plugins, skills, and hooks, "User extensions"](https://claude.com/docs/third-party/claude-desktop/extensions).
     To add a single assistant instead, upload its skill ZIP under **Customize > Skills** and turn it on ([Create custom skills](https://claude.com/docs/skills/how-to)).
 
-14. **Try it.** Paste a client's message and ask: "A client wrote to the showroom. Draft the response." Claude picks the matching assistant and returns a draft reply and a note. Nothing is sent anywhere by the assistant.
+14. **Try it.** Paste a client's message and ask: "A client wrote to the showroom. Draft the response." Claude picks the matching assistant and returns a draft reply and a note. The assistant prepares a draft. You review it and send it to the client yourself.
 
 ## What this does not cover yet
 

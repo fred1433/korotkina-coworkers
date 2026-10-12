@@ -4,7 +4,9 @@ Everything here was produced on 12 October 2026 with Claude Code 2.1.296 on a Cl
 
 ## Clean context
 
-Each run uses an empty temporary folder and only the package under test: `CLAUDE_CODE_DISABLE_CLAUDE_MDS=1` (no CLAUDE.md), `CLAUDE_CODE_DISABLE_AUTO_MEMORY=1`, `CLAUDE_CODE_DISABLE_BUNDLED_SKILLS=1`, `--setting-sources ""` (no user settings, hooks or installed plugins), `--strict-mcp-config` (no MCP servers), `--tools Skill` (no file, shell or web access), `--no-session-persistence`. The prompt never names a skill: Claude picks it from the descriptions.
+Each run uses an empty temporary folder and the plugin under test, with these settings: `CLAUDE_CODE_DISABLE_CLAUDE_MDS=1` (no CLAUDE.md), `CLAUDE_CODE_DISABLE_AUTO_MEMORY=1`, `CLAUDE_CODE_DISABLE_BUNDLED_SKILLS=1`, `--setting-sources ""` (no user settings, hooks or installed plugins), `--strict-mcp-config` (no MCP servers), `--tools Skill` (no file, shell or web access), `--no-session-persistence`. The prompt never names a skill: Claude picks it from the descriptions.
+
+The runtime still listed three additional built-in skills in every run: `design`, `doctor` and `plugin-authoring` (see `skills_in_context` in each record). The logs show that only the intended showroom skill was invoked in each case.
 
 ## Files
 

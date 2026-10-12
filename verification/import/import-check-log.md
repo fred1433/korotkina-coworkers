@@ -1,14 +1,17 @@
 # Import check of the files downloaded from the live page
 
-Run on 2026-10-12T13:41:37Z by `verification/import_check.sh`. Files: `verification/import/downloaded/`.
+Run on 2026-10-12T14:02:26Z by `verification/import_check.sh`. Files: `verification/import/downloaded/`.
 
 ## 1. Archive shape and checksums
 
 ```
-baeac16fa0fe8fe32b508d2108cd297bc35f4bb2ac48eaa0ee3cd54bf5c69a9e  page-edited-shorter-no-note-custom-heirloom-inquiries.zip
+a98200792e0e5c4ec65293c79656ea30293ac2eba15812efd70a30ca00623c43  page-edited-colon-description-repair-inquiries.zip
+    repair-inquiries/
+    repair-inquiries/SKILL.md
+08c1eea4c8a87020797762ed584ca5db87670abada7a8822312179fd1b95c684  page-edited-shorter-no-note-custom-heirloom-inquiries.zip
     custom-heirloom-inquiries/
     custom-heirloom-inquiries/SKILL.md
-0bf4c54441ea0dc2880d873c484f73f40777306cbc5d4700defcc31d3c5b3024  page-korotkina-coworkers-plugin.zip
+2b47253a57bde96f061763940f7c57895ba00236b31f4fd84cfa0ca7688ddaf2  page-korotkina-coworkers-plugin.zip
     korotkina-coworkers/
     korotkina-coworkers/LICENSE
     korotkina-coworkers/README.md
@@ -19,7 +22,7 @@ baeac16fa0fe8fe32b508d2108cd297bc35f4bb2ac48eaa0ee3cd54bf5c69a9e  page-edited-sh
     korotkina-coworkers/skills/custom-heirloom-inquiries/SKILL.md
     korotkina-coworkers/skills/repair-inquiries/
     korotkina-coworkers/skills/repair-inquiries/SKILL.md
-9dd7518164cde843580fd0701327a66b6d2d71dfac94bc3f359481282e112e37  page-original-custom-heirloom-inquiries.zip
+9c8ca7718a9054a890b443c645fa425b32bffc48cd72d8ec85f136dff6b0e91e  page-original-custom-heirloom-inquiries.zip
     custom-heirloom-inquiries/
     custom-heirloom-inquiries/SKILL.md
 ```
@@ -37,6 +40,17 @@ Validating plugin manifest: /private<tmp>/plug/korotkina-coworkers/.claude-plugi
 - page-original-custom-heirloom-inquiries.zip: `Valid skill: page-original-custom-heirloom-inquiries/custom-heirloom-inquiries`
 - page-edited-shorter-no-note-custom-heirloom-inquiries.zip: `Valid skill: page-edited-shorter-no-note-custom-heirloom-inquiries/custom-heirloom-inquiries`
 
+## 3b. Edited on the page with a description containing a colon (Draft a reply. Use when: a client asks about a repair.)
+
+```
+---
+name: repair-inquiries
+description: "Draft a reply. Use when: a client asks about a repair."
+---
+```
+- skills-ref: `Valid skill: colon/repair-inquiries`
+- claude plugin validate (skill wrapped in a test plugin): `✔ Validation passed`
+
 ## 4a. Plugin ZIP loaded as downloaded (--plugin-dir <zip>), case 03 (urgent resize)
 
 - Claude Code 2.1.296 | model claude-sonnet-5-5 | auth: subscription, apiKeySource none
@@ -49,26 +63,26 @@ Validating plugin manifest: /private<tmp>/plug/korotkina-coworkers/.claude-plugi
 
 Hi Clara,
 
-Thank you for writing. I'm sorry your wedding band has become too tight, and I understand you'd like it comfortable for your anniversary dinner on Saturday.
+Thank you for writing. I'm sorry your wedding band has become too tight, and I understand you'd like it resized before your anniversary dinner on Saturday.
 
-I can't promise a date before I've seen the ring. Once I've looked at it, I'll tell you honestly what is possible in your timeframe.
+I can't promise a date before I've seen the ring. Once I've looked at it in person, I'll tell you honestly what is possible for Friday.
 
-The next step is a short Jewelry Repair appointment at the showroom, where I'll look at the ring with you: https://app.acuityscheduling.com/schedule.php?owner=16919152
+The next step is a short appointment. Please book the 15-minute Jewelry Repair appointment here: https://app.acuityscheduling.com/schedule.php?owner=16919152
 
-Is Friday the day you need it by, or is there some flexibility?
+Please bring the ring with you.
 
 Warmly,
 Alina
 
 ## Intake note for Alina
 
-**Reported issue:** Wedding band is too tight and needs resizing. Client asked for a guarantee it will be done by Friday, ahead of an anniversary dinner on Saturday.
+**Reported issue:** Wedding band "has become too tight". Client wants it resized before the anniversary dinner on Saturday.
 
-**Not known yet:** Metal, any stones or engraving, the current and target size, and whether the ring has been in the workshop before.
+**Not known yet:** Metal, any stones or engraving, and the current and desired size. No photos.
 
-**Decisions for you:** Whether the Friday deadline is realistic, and whether to make any commitment once you've seen the ring.
+**Decisions for you:** Whether a Friday finish is realistic. The client asked for a guarantee, and I gave none.
 
-**Suggested appointment:** Jewelry Repair, because this is a resizing and you need to see the ring before saying what is possible.
+**Suggested appointment:** Jewelry Repair (15 minutes), because it is a resizing and you need to see the ring first.
 ```
 
 ## 4b. Original skill ZIP from the page, unzipped into a project's .claude/skills, case 01
@@ -81,28 +95,28 @@ Alina
 ```markdown
 ## Draft reply
 
-Dear Rosalind,
+Hello Rosalind,
 
-Thank you for writing, and for telling me about your grandmother's ring. It is lovely that you want to give it a life you can enjoy every day.
+Thank you for writing. Your grandmother's ring deserves to be worn and loved, and turning it into a pendant you can wear every day sounds like a lovely way to keep it close.
 
-I work by appointment only, so we can give the ring unhurried attention. We begin with a consultation. From there I make hand sketches, and we go on to stone selection, CAD renderings, wax models and the finished piece. You are part of the design throughout.
+I work by appointment, so you'll have my full attention. We begin with a consultation, then move to hand sketches, stone selection, CAD renderings and wax, and you're welcome to help shape the piece along the way.
 
-I would suggest our free Initial Consultation (30 minutes) at my showroom on Bainbridge Island. Please bring the ring, since I need to see it in person. You can choose a time here: https://app.acuityscheduling.com/schedule.php?owner=16919152
+I'd suggest the free Initial Consultation, a 30-minute visit at my showroom on Bainbridge Island. Please bring the ring, since I'd like to see it in person. You can book a time here: https://app.acuityscheduling.com/schedule.php?owner=16919152
 
-Two questions: what do you imagine wearing most days, and is there a date you have in mind? I will talk through timing with you at the consultation.
+Do you have a date in mind for finishing the piece? And do you picture a simple pendant, or something with more presence?
 
 Warmly,
 Alina
 
 ## Prep note for Alina
 
-**Known:** Grandmother's engagement ring, inherited. Small diamond on thin yellow gold band (as described by the client). It has sat in a drawer because it doesn't feel like her. She wants something for everyday wear, maybe a pendant. She lives in Seattle and can come by ferry.
+**Known:** Grandmother's engagement ring, a small diamond on a thin yellow gold band (as described by the client). It has sat in a drawer because it doesn't feel like her. She wants an everyday piece, maybe a pendant. She lives in Seattle and can come by ferry.
 
-**Not known yet:** Stone and metal details, condition, other style preferences, any date or occasion. I did not ask her to bring photos.
+**Not known yet:** The actual stone and metal, the ring's condition, her style and budget, and any date.
 
-**Decisions for you:** Whether to ask for photos beforehand. Whether to discuss timing at the consultation.
+**Decisions for you:** Whether to discuss timing if she names a date. Whether to ask for photos beforehand.
 
-**Suggested appointment:** Initial Consultation (in person), because you need to see the ring. Virtual is a fallback.
+**Suggested appointment:** Initial Consultation (30 minutes, in person). You need to see the ring, and she can travel.
 ```
 
 ## 4c. Edited skill ZIP from the page (Shorter, note left out), same case 01
@@ -115,13 +129,13 @@ Alina
 ```markdown
 ## Draft reply
 
-Dear Rosalind,
+Hello Rosalind,
 
-Thank you for writing. Your grandmother's ring is a lovely thing to carry with you, and I'd be glad to help you turn it into something you'll wear every day.
+Thank you for writing. Turning your grandmother's ring into something you'll wear every day sounds like a lovely way to keep her close.
 
-I work by appointment, so we can take our time. We begin with a consultation, then hand sketches, stone selection, CAD renderings and wax, before the finished piece.
+I work by appointment, so we can give the piece our full attention. We begin with a consultation, then move to hand sketches, stone selection, CAD renderings and wax, with you as co-designer throughout.
 
-Could you bring the ring to a free 30-minute Initial Consultation here on Bainbridge? You can book a time here: https://app.acuityscheduling.com/schedule.php?owner=16919152
+I'd suggest the free 30-minute Initial Consultation at my Bainbridge Island showroom, where I can see the ring in person. Please bring it with you: https://app.acuityscheduling.com/schedule.php?owner=16919152
 
 Is there a date you have in mind?
 

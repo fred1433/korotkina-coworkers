@@ -2,7 +2,7 @@
 import json, glob, os
 meta = {
  "01-heirloom-ordinary": {"piece":"Grandmother's engagement ring","work":"Redesign for everyday wear","appt":"Initial Consultation"},
- "02-uncertain-stone-metal": {"piece":"Brooch, inherited","work":"Set the stone in a ring","appt":"Virtual Consultation"},
+ "02-uncertain-stone-metal": {"piece":"Brooch, inherited","work":"Set the stone in a ring","appt":"Initial Consultation"},
  "03-urgent-guarantee": {"piece":"Wedding band","work":"Resize, asks for Friday","appt":"Jewelry Repair"},
  "04-pickup-unconfirmed": {"piece":"Watch","work":"Battery and strap, asks to collect","appt":"None yet, Alina checks first"},
  "05-pickup-confirmed": {"piece":"Necklace, new clasp","work":"Collect, says it is ready","appt":"Pick up"},

@@ -6,15 +6,15 @@
   "skill_invoked": [
     "korotkina-coworkers:custom-heirloom-inquiries"
   ],
-  "output": "## Draft reply\n\nDear Theo,\n\nThank you for writing. A brooch from your aunt, with a stone you'd like your daughter to wear, is a lovely thing to want to carry forward.\n\nI can't tell you what the stone or the metal is from a description. When I see the brooch in person, I can look at it with you. I work by appointment, starting with a consultation. Then come hand sketches, stone selection, CAD renderings, and wax, until the piece is finished. You're a co-designer throughout.\n\nI'd suggest the free 30-minute Initial Consultation at my showroom on Bainbridge Island. Please bring the brooch. If a video call suits you better, the Virtual Consultation is a good way to begin:\nhttps://app.acuityscheduling.com/schedule.php?owner=16919152\n\nTwo questions: would your daughter prefer a simple or a more distinctive ring? Is there a date you have in mind?\n\nWarmly,\nAlina\n\n## Prep note for Alina\n\n**Known:** Inherited brooch from the client's aunt. Big blue stone, \"sapphire\" as described by the client. Silvery metal, \"white gold or platinum\" as described by the client. Wants the stone set in a ring for their daughter. Based in Portland. Asked whether it's worth doing.\n\n**Not known yet:** Real identity of the stone and metal. Other stones. Condition. Ring style. Any date. Whether the client can travel to Bainbridge.\n\n**Decisions for you:** Whether to ask for photos first. How to answer \"is it worth it\" at the visit. Whether to offer an appraisal.\n\n**Suggested appointment:** Initial Consultation, so you can see the brooch in person. Virtual is the fallback, since the client is in Portland.",
+  "output": "## Draft reply\n\nHello Theo,\n\nThank you for writing. A brooch from your aunt, becoming a ring for your daughter, is a lovely way to keep it in the family.\n\nI can't say what the stone or the metal is without seeing the piece in person, so I'd like to look at it with you. I work by appointment. We begin with a consultation, then move through hand sketches, stone selection, CAD renderings and wax, and you are welcome to help shape the ring along the way.\n\nThe best first step is the free 30-minute Initial Consultation at my showroom on Bainbridge Island, with the brooch in hand. If a video call suits you better, the 30-minute Virtual Consultation is another way to begin. You can pick a time here: https://app.acuityscheduling.com/schedule.php?owner=16919152\n\nWould your daughter like to join you? Is there a date you have in mind for the ring?\n\nWarmly,\nAlina\n\n## Prep note for Alina\n\n**Known:** Inherited brooch from the client's aunt. Big blue stone, \"I think sapphire, but it could be glass\" (as described by the client). Metal \"silvery, maybe white gold or platinum\" (as described by the client). Wants the stone set in a ring for their daughter. Based in Portland (not specified which). No date given.\n\n**Not known yet:** Stone and metal identity, other stones, the daughter's taste, the timeline, and whether they can travel to Bainbridge Island.\n\n**Decisions for you:** Whether to ask for photos first. Whether to answer \"is it worth doing\" before seeing the piece. Whether an Appraisals appointment fits.\n\n**Suggested appointment:** Initial Consultation, since you need to see the brooch in person. Virtual Consultation as a fallback if they can't travel.",
   "model": "claude-sonnet-5-5",
   "models_used": [
     "claude-sonnet-5-5"
   ],
   "claude_code_version": "2.1.296",
   "plugin": "korotkina-coworkers",
-  "plugin_version": "1.1.0",
-  "plugin_zip_sha256": "0bf4c54441ea0dc2880d873c484f73f40777306cbc5d4700defcc31d3c5b3024",
+  "plugin_version": "1.2.0",
+  "plugin_zip_sha256": "2b47253a57bde96f061763940f7c57895ba00236b31f4fd84cfa0ca7688ddaf2",
   "skills_in_context": [
     "korotkina-coworkers:custom-heirloom-inquiries",
     "korotkina-coworkers:repair-inquiries",
@@ -26,5 +26,5 @@
     "Skill"
   ],
   "auth": "Claude subscription (OAuth), apiKeySource=none",
-  "recorded_at_utc": "2026-10-12T13:39:31Z"
+  "recorded_at_utc": "2026-10-12T13:59:24Z"
 }

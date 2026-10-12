@@ -22,11 +22,20 @@ description: Draft a reply to a client who asks about engraving a piece at Alina
 
 Replace the list under "What you may rely on" with facts from your own site or your own words, and nothing else. For engraving, the services page offers names, dates, initials or a short quote added to any piece. Keep the "Never" list: no prices, no dates, no availability, no invented policies.
 
-## 4. Change the output
+## 4. Change the job and its next step
+
+Renaming a skill does not change the work inside it. Rewrite:
+
+- the title and the opening sentence that describes the job;
+- the instructions under "The reply to the client": what to acknowledge, what to ask, what happens next;
+- the appointment and referral lines: remove the ones that belong to the original assistant (Jewelry Repair, Watch Repairs, Pick up, and the line that sends engraving elsewhere). For engraving, decide with Alina what next step to offer; the booking page has no engraving appointment type;
+- the note: its parts should fit the new job. An engraving note asks about the piece and the wording, not about when a repair was dropped off.
+
+## 5. Change the output
 
 Keep the two-part output (a short reply for the client, a note for you) or change it. Say the length you want and how to sign off.
 
-## 5. Package and add it
+## 6. Package and add it
 
 - One assistant: zip the folder itself (not its contents), so the archive holds `engraving-inquiries/SKILL.md`, then upload under **Customize > Skills**.
 - With the others: put the folder in `skills/`, raise `version` in `.claude-plugin/plugin.json`, zip the plugin folder, upload under **Customize > Plugins**.

@@ -6,15 +6,15 @@
   "skill_invoked": [
     "korotkina-coworkers:repair-inquiries"
   ],
-  "output": "## Draft reply\n\nHi Clara,\n\nThank you for writing. I'm sorry your wedding band has become too tight, and I understand you'd like it comfortable for your anniversary dinner on Saturday.\n\nI can't promise a date before I've seen the ring. Once I've looked at it in person, I'll tell you honestly what is possible in your timeframe.\n\nThe next step is a short Jewelry Repair appointment at the showroom: https://app.acuityscheduling.com/schedule.php?owner=16919152\n\nIs Friday the day you need it by, or is there some flexibility?\n\nWarmly,\nAlina\n\n## Intake note for Alina\n\n- **Reported issue:** Wedding band too tight, needs resizing.\n- **Not known yet:** Metal or stone details, ring style, and whether it has been resized before.\n- **Decisions for you:** Whether a Friday finish is realistic. I gave no promise or timing.\n- **Suggested appointment:** Jewelry Repair, so you can see the ring and judge the deadline.",
+  "output": "## Draft reply\n\nHi Clara,\n\nThank you for writing. I'm sorry your wedding band has become too tight, and I understand you'd like it resized before your anniversary dinner on Saturday.\n\nI can't promise a date before I've seen the ring. Once I've looked at it in person, I'll tell you honestly what is possible for Friday.\n\nThe next step is a short appointment so I can see the band. The 15-minute Jewelry Repair appointment is the right one, and you can book it here: https://app.acuityscheduling.com/schedule.php?owner=16919152\n\nWarmly,\nAlina\n\n## Intake note for Alina\n\n**Reported issue:** Clara says her wedding band has become too tight and she needs it resized. She asked for a guarantee that it will be done by Friday, before an anniversary dinner on Saturday.\n\n**Not known yet:** Metal, any stones, and the band's style or width. No photos.\n\n**Decisions for you:** Whether a Friday finish is realistic, and whether to say so before she books.\n\n**Suggested appointment:** Jewelry Repair (15 minutes), because it's a resizing.",
   "model": "claude-sonnet-5-5",
   "models_used": [
     "claude-sonnet-5-5"
   ],
   "claude_code_version": "2.1.296",
   "plugin": "korotkina-coworkers",
-  "plugin_version": "1.1.0",
-  "plugin_zip_sha256": "0bf4c54441ea0dc2880d873c484f73f40777306cbc5d4700defcc31d3c5b3024",
+  "plugin_version": "1.2.0",
+  "plugin_zip_sha256": "2b47253a57bde96f061763940f7c57895ba00236b31f4fd84cfa0ca7688ddaf2",
   "skills_in_context": [
     "korotkina-coworkers:custom-heirloom-inquiries",
     "korotkina-coworkers:repair-inquiries",
@@ -26,5 +26,5 @@
     "Skill"
   ],
   "auth": "Claude subscription (OAuth), apiKeySource=none",
-  "recorded_at_utc": "2026-10-12T13:39:38Z"
+  "recorded_at_utc": "2026-10-12T13:59:31Z"
 }

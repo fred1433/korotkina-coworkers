@@ -6,15 +6,15 @@
   "skill_invoked": [
     "korotkina-coworkers:custom-heirloom-inquiries"
   ],
-  "output": "## Draft reply\n\nBonjour Lucie,\n\nMerci de votre message. La bague de fiançailles de votre grand-mère mérite qu'on lui donne une vie quotidienne, et je comprends l'envie de la porter tous les jours.\n\nJe travaille sur rendez-vous, et j'ai besoin de voir la bague en personne. Je ne peux donc pas vous dire ce qui est faisable avant cela. Nous commencerions par une consultation, puis viendraient les croquis à la main, le choix des pierres, les rendus en CAO et la cire. Vous créez la pièce avec moi.\n\nTrois questions :\n- Que souhaiteriez-vous porter au final (bague, pendentif, autre) ?\n- Pouvez-vous apporter la bague au rendez-vous ?\n- Y a-t-il une date qui compte pour vous ? Nous parlerons du calendrier ensemble.\n\nVous pouvez réserver la consultation gratuite de 30 minutes au showroom ici : https://app.acuityscheduling.com/schedule.php?owner=16919152\n\nChaleureusement,\nAlina\n\n## Prep note for Alina\n\n**Known:** Lucie inherited her grandmother's engagement ring: a small sapphire on yellow gold (as described by the client). She wants to turn it into something she can wear every day. She is spending the summer on Bainbridge.\n\n**Not known yet:** The type of piece she wants. The condition of the ring. Whether the stone and metal are what she says. Whether she has a date in mind. Whether \"summer\" is the current season or the next one.\n\n**Decisions for you:** Whether to discuss timing, and whether to ask for photos beforehand.\n\n**Suggested appointment:** Initial Consultation (free, 30 minutes, in person), because you need to see the ring and she is local.",
+  "output": "## Draft reply\n\nBonjour Lucie,\n\nMerci de votre message. La bague de fiançailles de votre grand-mère compte beaucoup pour vous, et l'idée de la porter chaque jour est belle.\n\nJe travaille sur rendez-vous. Nous commençons par une consultation, puis viennent les croquis à la main et les étapes suivantes, jusqu'à la pièce finie. Je dois voir la bague en personne avant de pouvoir vous dire ce qui est envisageable.\n\nJe vous invite à la consultation initiale gratuite (30 minutes) à mon showroom de Bainbridge, avec la bague : https://app.acuityscheduling.com/schedule.php?owner=16919152. Une consultation virtuelle (30 minutes) est aussi possible pour commencer.\n\nQue souhaiteriez-vous porter au quotidien ? Pourrez-vous apporter la bague ? Avez-vous une date en tête ?\n\nChaleureusement,\nAlina\n\n## Prep note for Alina\n\n**Known:** Inherited grandmother's engagement ring, \"small sapphire on yellow gold\" (as described by the client). Wants something to wear every day. In Bainbridge for the summer.\n\n**Not known yet:** Desired final piece (ring, pendant, other). Whether the stone is real. Whether she can bring the ring. Any date or deadline. Whether she is on the island now.\n\n**Decisions for you:** Whether to discuss timing before she visits. Whether to ask for photos first.\n\n**Suggested appointment:** Initial Consultation (free, 30 minutes, in person), because you need to see the ring. The Virtual Consultation is offered as a second option.",
   "model": "claude-sonnet-5-5",
   "models_used": [
     "claude-sonnet-5-5"
   ],
   "claude_code_version": "2.1.296",
   "plugin": "korotkina-coworkers",
-  "plugin_version": "1.1.0",
-  "plugin_zip_sha256": "0bf4c54441ea0dc2880d873c484f73f40777306cbc5d4700defcc31d3c5b3024",
+  "plugin_version": "1.2.0",
+  "plugin_zip_sha256": "2b47253a57bde96f061763940f7c57895ba00236b31f4fd84cfa0ca7688ddaf2",
   "skills_in_context": [
     "korotkina-coworkers:custom-heirloom-inquiries",
     "korotkina-coworkers:repair-inquiries",
@@ -26,5 +26,5 @@
     "Skill"
   ],
   "auth": "Claude subscription (OAuth), apiKeySource=none",
-  "recorded_at_utc": "2026-10-12T13:40:15Z"
+  "recorded_at_utc": "2026-10-12T14:00:08Z"
 }
