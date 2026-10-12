@@ -1,5 +1,4 @@
-// Gabarit : remplacer korotkina. Sert site/ sous https://theaipipe.com/demos/korotkina/ (static files only).
-// The route is more specific than the galerie-presell route theaipipe.com/demos/*, so it wins.
+// Serves the static files in site/ under https://theaipipe.com/demos/korotkina/
 const BASE = '/demos/korotkina';
 export default {
   async fetch(request, env) {

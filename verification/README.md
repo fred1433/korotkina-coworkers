@@ -8,7 +8,7 @@ Each run uses an empty temporary folder and only the package under test: `CLAUDE
 
 ## Files
 
-- `cases/`: the five fictional client messages (ordinary heirloom; uncertain stone and metal; urgent resize asking for a guarantee; pickup without confirmation that the piece is ready; pickup the client says was confirmed).
+- `cases/`: the seven fictional client messages (ordinary heirloom; uncertain stone and metal; urgent resize asking for a guarantee; pickup without confirmation that the piece is ready; pickup the client says was confirmed; appraisal plus engraving; a message in French).
 - `records/<case>.json`: input, output, skill invoked, model, Claude Code version, plugin name and version, SHA-256 of the plugin ZIP, timestamp. `records/<case>.jsonl` is the raw event stream.
 - `run_cases.sh`: re-runs the cases against a plugin ZIP. `make_record.py` builds each record.
 - `import/downloaded/`: the plugin ZIP and two skill ZIPs downloaded from the live page with a headless browser (one skill edited on the page: Shorter, note left out).

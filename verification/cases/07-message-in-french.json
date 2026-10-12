@@ -1,0 +1,7 @@
+{
+  "id": "07-message-in-french",
+  "expected_skill": "custom-heirloom-inquiries",
+  "fictional_client": "Lucie Exemple",
+  "message": "Bonjour Alina,\n\nJ'ai hérité de la bague de fiançailles de ma grand-mère, un petit saphir sur de l'or jaune. Je voudrais la transformer en quelque chose que je porterais tous les jours. Je passe l'été à Bainbridge. Est-ce possible ?\n\nLucie",
+  "prompt": "A client wrote to the showroom. Draft the response for Alina.\n\n---\nBonjour Alina,\n\nJ'ai hérité de la bague de fiançailles de ma grand-mère, un petit saphir sur de l'or jaune. Je voudrais la transformer en quelque chose que je porterais tous les jours. Je passe l'été à Bainbridge. Est-ce possible ?\n\nLucie"
+}

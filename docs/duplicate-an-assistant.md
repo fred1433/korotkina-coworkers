@@ -20,7 +20,7 @@ description: Draft a reply to a client who asks about engraving a piece at Alina
 
 ## 3. Change the facts it may rely on
 
-Replace the list under "What you may rely on" with facts from your own site or your own words, and nothing else. For engraving, the services page says: "Add a quote, golf championship title, wedding or anniversary date, names of your children, or his and her's initials to any piece." Keep the "Never" list: no prices, no dates, no availability, no invented policies.
+Replace the list under "What you may rely on" with facts from your own site or your own words, and nothing else. For engraving, the services page offers names, dates, initials or a short quote added to any piece. Keep the "Never" list: no prices, no dates, no availability, no invented policies.
 
 ## 4. Change the output
 

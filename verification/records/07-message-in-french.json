@@ -1,0 +1,30 @@
+{
+  "case": "07-message-in-french",
+  "fictional_client": "Lucie Exemple",
+  "input": "A client wrote to the showroom. Draft the response for Alina.\n\n---\nBonjour Alina,\n\nJ'ai hérité de la bague de fiançailles de ma grand-mère, un petit saphir sur de l'or jaune. Je voudrais la transformer en quelque chose que je porterais tous les jours. Je passe l'été à Bainbridge. Est-ce possible ?\n\nLucie",
+  "expected_skill": "custom-heirloom-inquiries",
+  "skill_invoked": [
+    "korotkina-coworkers:custom-heirloom-inquiries"
+  ],
+  "output": "## Draft reply\n\nBonjour Lucie,\n\nMerci de votre message. La bague de fiançailles de votre grand-mère mérite qu'on lui donne une vie quotidienne, et je comprends l'envie de la porter tous les jours.\n\nJe travaille sur rendez-vous, et j'ai besoin de voir la bague en personne. Je ne peux donc pas vous dire ce qui est faisable avant cela. Nous commencerions par une consultation, puis viendraient les croquis à la main, le choix des pierres, les rendus en CAO et la cire. Vous créez la pièce avec moi.\n\nTrois questions :\n- Que souhaiteriez-vous porter au final (bague, pendentif, autre) ?\n- Pouvez-vous apporter la bague au rendez-vous ?\n- Y a-t-il une date qui compte pour vous ? Nous parlerons du calendrier ensemble.\n\nVous pouvez réserver la consultation gratuite de 30 minutes au showroom ici : https://app.acuityscheduling.com/schedule.php?owner=16919152\n\nChaleureusement,\nAlina\n\n## Prep note for Alina\n\n**Known:** Lucie inherited her grandmother's engagement ring: a small sapphire on yellow gold (as described by the client). She wants to turn it into something she can wear every day. She is spending the summer on Bainbridge.\n\n**Not known yet:** The type of piece she wants. The condition of the ring. Whether the stone and metal are what she says. Whether she has a date in mind. Whether \"summer\" is the current season or the next one.\n\n**Decisions for you:** Whether to discuss timing, and whether to ask for photos beforehand.\n\n**Suggested appointment:** Initial Consultation (free, 30 minutes, in person), because you need to see the ring and she is local.",
+  "model": "claude-sonnet-5-5",
+  "models_used": [
+    "claude-sonnet-5-5"
+  ],
+  "claude_code_version": "2.1.296",
+  "plugin": "korotkina-coworkers",
+  "plugin_version": "1.1.0",
+  "plugin_zip_sha256": "0bf4c54441ea0dc2880d873c484f73f40777306cbc5d4700defcc31d3c5b3024",
+  "skills_in_context": [
+    "korotkina-coworkers:custom-heirloom-inquiries",
+    "korotkina-coworkers:repair-inquiries",
+    "design",
+    "doctor",
+    "plugin-authoring"
+  ],
+  "tools_in_context": [
+    "Skill"
+  ],
+  "auth": "Claude subscription (OAuth), apiKeySource=none",
+  "recorded_at_utc": "2026-10-12T13:40:15Z"
+}

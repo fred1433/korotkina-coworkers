@@ -1,0 +1,7 @@
+{
+  "id": "06-appraisal-engraving",
+  "expected_skill": "either",
+  "fictional_client": "Miriam Example",
+  "message": "Hello,\n\nMy late mother left me her diamond necklace. I'd like to have it appraised for insurance, and I was also wondering whether you could engrave our wedding date on the clasp. What would be the best way to go about this?\n\nMiriam",
+  "prompt": "A client wrote to the showroom. Draft the response for Alina.\n\n---\nHello,\n\nMy late mother left me her diamond necklace. I'd like to have it appraised for insurance, and I was also wondering whether you could engrave our wedding date on the clasp. What would be the best way to go about this?\n\nMiriam"
+}
