@@ -1,0 +1,7 @@
+{
+  "id": "02-uncertain-stone-metal",
+  "expected_skill": "custom-heirloom-inquiries",
+  "fictional_client": "Theo Example",
+  "message": "Hi,\n\nI inherited a brooch from my aunt. I think the big blue stone is a sapphire, but honestly it could be glass, and the metal looks silvery, maybe white gold or platinum? I'd like to have the stone set in a ring for my daughter. Is it even worth doing? I'm in Portland.\n\nTheo",
+  "prompt": "A client wrote to the showroom. Draft the response for Alina.\n\n---\nHi,\n\nI inherited a brooch from my aunt. I think the big blue stone is a sapphire, but honestly it could be glass, and the metal looks silvery, maybe white gold or platinum? I'd like to have the stone set in a ring for my daughter. Is it even worth doing? I'm in Portland.\n\nTheo"
+}

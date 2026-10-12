@@ -1,0 +1,7 @@
+{
+  "id": "03-urgent-guarantee",
+  "expected_skill": "repair-inquiries",
+  "fictional_client": "Clara Sample",
+  "message": "Hi Alina,\n\nMy wedding band has become too tight and I need it resized before our anniversary dinner on Saturday. Can you guarantee it will be done by Friday?\n\nClara",
+  "prompt": "A client wrote to the showroom. Draft the response for Alina.\n\n---\nHi Alina,\n\nMy wedding band has become too tight and I need it resized before our anniversary dinner on Saturday. Can you guarantee it will be done by Friday?\n\nClara"
+}

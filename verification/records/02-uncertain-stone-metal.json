@@ -1,0 +1,30 @@
+{
+  "case": "02-uncertain-stone-metal",
+  "fictional_client": "Theo Example",
+  "input": "A client wrote to the showroom. Draft the response for Alina.\n\n---\nHi,\n\nI inherited a brooch from my aunt. I think the big blue stone is a sapphire, but honestly it could be glass, and the metal looks silvery, maybe white gold or platinum? I'd like to have the stone set in a ring for my daughter. Is it even worth doing? I'm in Portland.\n\nTheo",
+  "expected_skill": "custom-heirloom-inquiries",
+  "skill_invoked": [
+    "korotkina-coworkers:custom-heirloom-inquiries"
+  ],
+  "output": "## Draft reply\n\nDear Theo,\n\nThank you for writing. A brooch from your aunt, and the idea of turning its stone into a ring for your daughter, is a lovely way to keep it in the family.\n\nI work by appointment. We begin with a consultation, then move to hand sketches, stone selection, CAD renderings and wax molds. I can't say what the stone or metal is without seeing the brooch in person. We can talk through everything else at the consultation.\n\nSince you're in Portland, a 30-minute Virtual Consultation may be easiest: https://app.acuityscheduling.com/schedule.php?owner=16919152. You're also welcome to book the free in-person Initial Consultation at my showroom and bring the brooch.\n\nWhat kind of ring would your daughter enjoy wearing? Is there a date you have in mind?\n\nWarmly,\nAlina\n\n## Prep note for Alina\n\n**Known:** Theo inherited a brooch from an aunt. It has a large blue stone, a sapphire or glass (as described by the client), and silvery metal, white gold or platinum (as described by the client). Theo wants the stone set in a ring for their daughter and asked whether it's worth doing. They are in Portland.\n\n**Not known yet:** The identity and quality of the stone and metal, the brooch's condition, the daughter's style, any date, and whether Theo can travel to Bainbridge.\n\n**Decisions for you:** Whether to ask for photos first, and how to answer \"is it worth doing\" once you've seen the piece.\n\n**Suggested appointment:** Virtual Consultation, because Theo is in Portland. I offered the in-person Initial Consultation as an alternative.",
+  "model": "claude-sonnet-5-5",
+  "models_used": [
+    "claude-sonnet-5-5"
+  ],
+  "claude_code_version": "2.1.296",
+  "plugin": "korotkina-coworkers",
+  "plugin_version": "1.0.0",
+  "plugin_zip_sha256": "5689a36ac67975f10bd4aad4acebc6e74a8ed8a089aadfe5c9c9a04461d0d97f",
+  "skills_in_context": [
+    "korotkina-coworkers:custom-heirloom-inquiries",
+    "korotkina-coworkers:repair-inquiries",
+    "design",
+    "doctor",
+    "plugin-authoring"
+  ],
+  "tools_in_context": [
+    "Skill"
+  ],
+  "auth": "Claude subscription (OAuth), apiKeySource=none",
+  "recorded_at_utc": "2026-10-12T13:15:04Z"
+}

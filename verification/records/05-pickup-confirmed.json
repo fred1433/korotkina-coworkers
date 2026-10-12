@@ -1,0 +1,30 @@
+{
+  "case": "05-pickup-confirmed",
+  "fictional_client": "Ada Sample",
+  "input": "A client wrote to the showroom. Draft the response for Alina.\n\n---\nHi Alina,\n\nThank you for your email yesterday saying my necklace with the new clasp is ready. How do I book a time to collect it?\n\nAda",
+  "expected_skill": "repair-inquiries",
+  "skill_invoked": [
+    "korotkina-coworkers:repair-inquiries"
+  ],
+  "output": "## Draft reply\n\nHi Ada,\n\nThank you for your note. I understand you'd like to collect your necklace with the new clasp.\n\nYou can book a Pick up appointment here, which takes about 10 minutes:\nhttps://app.acuityscheduling.com/schedule.php?owner=16919152\n\nI work by appointment only, so please choose a time from that page. We're at The Winslow Showroom, Harbor Square, 752 Winslow Way East, Bainbridge Island. If you have any trouble booking, call me on 206-605-1510.\n\nI look forward to seeing you.\n\nWarmly,\nAlina\n\n## Intake note for Alina\n\n- **Reported issue:** Ada says you emailed yesterday to say her necklace, with a new clasp, is ready. She wants to book a collection time.\n- **Not known yet:** I can't see your records or sent emails, so I haven't confirmed the email or that the piece is ready.\n- **Decisions for you:** Check that the necklace is ready before sending. If it isn't, replace the Pick up suggestion with a note that you'll write back.\n- **Suggested appointment:** Pick up (10 minutes), because Ada says the studio told her the piece is ready.",
+  "model": "claude-sonnet-5-5",
+  "models_used": [
+    "claude-sonnet-5-5"
+  ],
+  "claude_code_version": "2.1.296",
+  "plugin": "korotkina-coworkers",
+  "plugin_version": "1.0.0",
+  "plugin_zip_sha256": "5689a36ac67975f10bd4aad4acebc6e74a8ed8a089aadfe5c9c9a04461d0d97f",
+  "skills_in_context": [
+    "korotkina-coworkers:custom-heirloom-inquiries",
+    "korotkina-coworkers:repair-inquiries",
+    "design",
+    "doctor",
+    "plugin-authoring"
+  ],
+  "tools_in_context": [
+    "Skill"
+  ],
+  "auth": "Claude subscription (OAuth), apiKeySource=none",
+  "recorded_at_utc": "2026-10-12T13:15:30Z"
+}

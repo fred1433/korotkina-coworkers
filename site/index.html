@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Showroom Assistants</title>
+<meta name="description" content="Two sample Claude assistants for a fine jewelry showroom: custom and heirloom inquiries, and repair inquiries.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --wall:#EFE2DC;        /* blush plaster wall */
+  --wall-deep:#E6D3CB;
+  --manila:#E3CA97;      /* job envelope */
+  --manila-shade:#D5B77D;
+  --manila-edge:#B8975C;
+  --print:#8A5546;       /* printed envelope ink, rose-brown */
+  --ink:#1F2A44;         /* blue-black annotation ink */
+  --rose:#AE6B59;        /* rose gold, from the monogram */
+  --rose-deep:#93533F;
+  --text:#2C2420;
+  --muted:#6C5B53;
+  --paper:#FFFDFA;
+  --card:#F8ECE7;
+  --focus:#1F2A44;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--wall);color:var(--text);font:400 16px/1.55 "Instrument Sans",system-ui,sans-serif}
+a{color:var(--rose-deep);text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+@media (max-width:640px){.wrap{padding:0 16px}}
+
+/* top line */
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px 0 0;font-size:13px;color:var(--muted)}
+@media (max-width:640px){.top .for{display:none}}
+.top b{font-weight:600;color:var(--text)}
+
+/* title */
+.title{padding:46px 0 30px;display:grid;grid-template-columns:minmax(0,1.9fr) minmax(0,1fr);gap:48px;align-items:end}
+h1 .l{display:block}
+@media (max-width:640px){h1 .l{display:inline}}
+h1{font-family:Newsreader,Georgia,serif;font-weight:400;font-size:clamp(34px,4.5vw,62px);line-height:1.04;letter-spacing:.055em;text-transform:uppercase;margin:0;color:var(--text);font-variation-settings:"opsz" 72}
+.lede{font-family:Newsreader,Georgia,serif;font-size:21px;line-height:1.45;margin:0 0 6px;max-width:30em;color:var(--text)}
+@media (max-width:860px){.title{grid-template-columns:1fr;gap:18px;padding:36px 0 26px}.lede{font-size:19px}}
+
+/* tray tabs */
+.tray{position:relative}
+.tabs{display:flex;gap:6px;align-items:flex-end;padding-left:18px}
+.tab{appearance:none;border:0;cursor:pointer;font:600 15px/1.2 "Instrument Sans",sans-serif;color:var(--print);background:var(--manila-shade);padding:13px 22px 12px;border-radius:12px 12px 0 0;position:relative;top:0;transition:background .2s, color .2s;box-shadow:inset 0 -6px 8px -6px rgba(90,60,20,.25)}
+.tab[aria-selected="true"]{background:var(--manila);color:var(--ink);padding-top:16px;box-shadow:none}
+.tab small{display:block;font-weight:400;font-size:12.5px;color:var(--muted);margin-top:3px}
+@media (max-width:640px){.tabs{padding-left:0;gap:4px}.tab{flex:1;padding:11px 12px 10px;font-size:14px}.tab[aria-selected="true"]{padding-top:14px}.tab small{display:none}}
+
+/* envelope */
+.env{position:relative;background-color:var(--manila);border-radius:4px 14px 14px 14px;padding:0 0 30px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .32 0 0 0 0 .12 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  box-shadow:0 1px 0 var(--manila-edge),0 18px 40px -22px rgba(80,50,20,.45)}
+@media (max-width:640px){.env{border-radius:0 0 12px 12px}}
+.flap{position:relative;height:64px;border-radius:4px 14px 0 0;overflow:hidden}
+.flap svg{position:absolute;inset:0;width:100%;height:100%}
+.flap .printed{position:absolute;left:26px;top:20px;font:italic 400 19px/1 Newsreader,serif;color:var(--print)}
+.flap .printed b{font-style:normal;font-weight:500;letter-spacing:.04em}
+.flap .tie{position:absolute;right:30px;top:16px;width:30px;height:30px;border-radius:50%;background:var(--manila-shade);box-shadow:inset 0 0 0 2px var(--manila-edge),0 1px 1px rgba(80,50,20,.3)}
+.flap .tie:after{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:var(--manila-edge)}
+.flap .thread{position:absolute;right:44px;top:30px;width:110px;height:60px;border:2px solid var(--rose);border-color:var(--rose) transparent transparent transparent;border-radius:50% 50% 0 0;transform:rotate(-14deg);transform-origin:right top}
+@media (max-width:640px){.flap{height:52px;border-radius:0}.flap .printed{left:14px;top:16px;font-size:17px}.flap .tie{right:16px;top:11px}.flap .thread{right:30px;top:25px;width:70px}}
+
+/* printed form */
+.form{margin:8px 26px 0;border:1.5px solid var(--print);display:grid;grid-template-columns:110px 1.2fr 1.4fr 1.4fr 1.3fr}
+.cell{padding:9px 12px 10px;border-left:1px solid var(--print);min-width:0}
+.cell:first-child{border-left:0}
+.lab{display:block;font:500 11.5px/1.2 "Instrument Sans",sans-serif;color:var(--print);letter-spacing:.02em}
+.val{display:block;font:500 16px/1.3 "Instrument Sans",sans-serif;color:var(--ink);margin-top:4px;overflow-wrap:anywhere}
+.cell.no .val{font-family:Newsreader,serif;font-size:26px;font-weight:500;margin-top:0}
+@media (max-width:860px){.form{grid-template-columns:90px 1fr 1fr}.cell:nth-child(4),.cell:nth-child(5){border-top:1px solid var(--print)}.cell:nth-child(4){border-left:0;grid-column:1 / span 2}}
+@media (max-width:640px){.form{margin:8px 14px 0;grid-template-columns:64px 1fr}.cell{padding:7px 10px 8px}.val{font-size:15px}.cell.no .val{font-size:22px}.cell:nth-child(4){display:none}.cell:nth-child(3),.cell:nth-child(5){grid-column:1 / -1;border-left:0;border-top:1px solid var(--print)}}
+
+/* bar */
+.bar{display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center;justify-content:space-between;margin:20px 26px 0}
+.cases{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.cases span{font-size:13px;color:var(--print);margin-right:4px}
+.chip{appearance:none;cursor:pointer;border:1.5px solid var(--print);background:transparent;color:var(--print);font:500 14px/1 Newsreader,serif;padding:7px 11px 6px;border-radius:999px}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.right{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.seg{display:inline-flex;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden}
+.seg button{appearance:none;border:0;background:transparent;color:var(--ink);font:600 14px/1 "Instrument Sans",sans-serif;padding:10px 16px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.dl{appearance:none;border:0;cursor:pointer;background:var(--rose);color:#fff;font:600 15px/1 "Instrument Sans",sans-serif;padding:13px 20px;border-radius:999px;box-shadow:0 2px 0 var(--rose-deep)}
+.dl:hover{background:var(--rose-deep)}
+@media (max-width:640px){.bar{margin:16px 14px 0}.right{width:100%}.seg{flex:1}.seg button{flex:1;padding:11px 8px}.dl{width:100%;padding:14px}}
+
+/* sheets */
+.desk{margin:22px 26px 0;display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.38fr);gap:26px;align-items:start}
+@media (max-width:860px){.desk{grid-template-columns:1fr;gap:18px}}
+@media (max-width:640px){.desk{margin:16px 10px 0}}
+.slip{background:var(--paper);padding:22px 24px 24px;border-radius:2px;box-shadow:0 1px 2px rgba(60,40,20,.18),0 10px 22px -16px rgba(60,40,20,.5);transform:rotate(-.6deg)}
+.slip h3,.letter h3,.note h3{font:600 12.5px/1.2 "Instrument Sans",sans-serif;color:var(--muted);margin:0 0 12px;letter-spacing:.01em}
+.slip .msg{font-family:Newsreader,serif;font-size:17px;line-height:1.55;white-space:pre-line;color:var(--text)}
+.slip .from{margin-top:14px;font-size:13px;color:var(--muted)}
+.letter{background:var(--paper);padding:28px 32px 26px;border-radius:2px;box-shadow:0 1px 2px rgba(60,40,20,.18),0 14px 28px -18px rgba(60,40,20,.55)}
+.letter .body{font-family:Newsreader,serif;font-size:18px;line-height:1.6;color:var(--text)}
+.letter .body p{margin:0 0 .8em}
+.letter .body ul{margin:0 0 .8em;padding-left:1.1em}
+.letter .body a{overflow-wrap:anywhere}
+.note{margin:-6px 18px 0 46px;background:var(--card);padding:18px 22px 18px;border-radius:2px;position:relative;
+  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 25px,rgba(174,107,89,.22) 25px,rgba(174,107,89,.22) 26px);background-position:0 40px;
+  box-shadow:0 1px 2px rgba(60,40,20,.16),0 10px 20px -16px rgba(60,40,20,.5);transform:rotate(.5deg)}
+.note:before{content:"";position:absolute;top:-9px;left:28px;width:46px;height:18px;background:rgba(255,253,250,.7);box-shadow:0 1px 2px rgba(0,0,0,.08);transform:rotate(-3deg)}
+.note .body{font-size:14.5px;line-height:1.55;color:var(--text)}
+.note .body p{margin:0 0 .45em}
+.note .body strong{color:var(--ink)}
+.note .body ul{margin:0;padding-left:1.05em}
+@media (max-width:640px){.slip{transform:none;padding:18px}.letter{padding:22px 18px}.letter .body{font-size:17px}.note{margin:-4px 6px 0 14px;transform:none}}
+.caption{margin:22px 26px 0;font-size:13.5px;color:var(--print)}
+.caption b{font-weight:600}
+@media (max-width:640px){.caption{margin:18px 14px 0}}
+
+/* editor */
+.editor{display:none;margin:22px 26px 0;grid-template-columns:minmax(0,.82fr) minmax(0,1.38fr);gap:26px;align-items:start}
+.editing .desk{display:none}.editing .editor{display:grid}
+@media (max-width:860px){.editor{grid-template-columns:1fr}}
+@media (max-width:640px){.editor{margin:16px 10px 0}}
+.panel{background:rgba(255,253,250,.55);border:1.5px solid var(--print);padding:20px 22px;border-radius:4px}
+.panel fieldset{border:0;margin:0 0 18px;padding:0}
+.panel legend{font:600 15px/1.3 "Instrument Sans",sans-serif;color:var(--ink);margin-bottom:8px;padding:0}
+.opt{display:flex;gap:8px;flex-wrap:wrap}
+.opt label{display:inline-flex;align-items:center;gap:7px;border:1.5px solid var(--print);border-radius:999px;padding:7px 13px;cursor:pointer;font-size:14px;color:var(--print);background:transparent}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt label:has(input:checked){background:var(--ink);border-color:var(--ink);color:#fff}
+.opt label:has(input:focus-visible){outline:2px solid var(--focus);outline-offset:2px}
+.panel p{margin:0 0 10px;font-size:14px;color:var(--text)}
+.panel .file{font-family:Newsreader,serif;font-size:16px;color:var(--ink);overflow-wrap:anywhere}
+.status{font-size:14px;margin-top:8px;min-height:1.4em}
+.status.err{color:#9b2c1f}
+.status.ok{color:#2f5a37}
+.sheet{background:var(--paper);border-radius:2px;box-shadow:0 1px 2px rgba(60,40,20,.18),0 14px 28px -18px rgba(60,40,20,.55);padding:6px}
+.sheet label{display:block;font:600 12.5px/1.2 "Instrument Sans",sans-serif;color:var(--muted);padding:14px 18px 0}
+textarea{display:block;width:100%;min-height:560px;border:0;resize:vertical;background:transparent;padding:10px 18px 18px;font:400 15.5px/1.6 Newsreader,Georgia,serif;color:var(--text)}
+textarea:focus{outline:none}
+.sheet:focus-within{box-shadow:0 0 0 2px var(--ink),0 14px 28px -18px rgba(60,40,20,.55)}
+@media (max-width:640px){textarea{min-height:420px;font-size:15px;padding:10px 12px 14px}.sheet label{padding:12px 12px 0}}
+
+/* section 2 */
+.use{padding:84px 0 40px}
+.use h2{font-family:Newsreader,serif;font-weight:400;font-size:clamp(28px,3.4vw,40px);line-height:1.12;margin:0 0 26px;max-width:22em}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px;counter-reset:s}
+.steps li{counter-increment:s;border-top:1.5px solid var(--print);padding-top:14px}
+.steps li:before{content:counter(s);font-family:Newsreader,serif;font-size:30px;line-height:1;color:var(--rose);display:block;margin-bottom:10px}
+.steps h3{font:600 17px/1.3 "Instrument Sans",sans-serif;margin:0 0 6px;color:var(--ink)}
+.steps p{margin:0;font-size:15px;color:var(--text)}
+@media (max-width:860px){.steps{grid-template-columns:1fr;gap:22px}}
+.facts{margin:44px 0 0;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px;align-items:start}
+.facts p{margin:0 0 12px;font-size:15px;max-width:40em}
+.facts .aws{font-family:Newsreader,serif;font-size:20px;line-height:1.45;color:var(--ink)}
+.links{list-style:none;margin:0;padding:0;font-size:15px}
+.links li{padding:9px 0;border-bottom:1px solid rgba(138,85,70,.35)}
+.links li:first-child{border-top:1px solid rgba(138,85,70,.35)}
+@media (max-width:860px){.facts{grid-template-columns:1fr;gap:24px}}
+.call{margin:48px 0 0;display:flex;flex-wrap:wrap;gap:16px 26px;align-items:center}
+.call p{margin:0;font-family:Newsreader,serif;font-size:21px;max-width:28em}
+.call a.btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;font:600 15px/1 "Instrument Sans",sans-serif;padding:15px 22px;border-radius:999px}
+.call a.btn:hover{background:#2c3a5c}
+footer{padding:40px 0 34px;font-size:13px;color:var(--muted);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+footer img{width:18px;height:18px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;background:var(--ink);color:#fff;font-size:14px;padding:12px 18px;border-radius:10px;max-width:calc(100% - 32px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:5}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><span class="for">For Alina Korotkina Fine Jewelry</span><span>Independent sample by <b>The AI Pipe</b></span></div>
+
+  <header class="title">
+    <h1><span class="l">Two Claude </span><span class="l">assistants for </span><span class="l">your showroom</span></h1>
+    <p class="lede">Each one reads a client's message and drafts a short reply for you to approve, with a note to prepare the appointment. Read the examples, change the instructions, and download them for Claude.</p>
+  </header>
+
+  <main>
+  <section class="tray" aria-label="Assistants">
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" id="tab-custom" aria-controls="env" data-skill="custom-heirloom-inquiries" aria-selected="true">Custom &amp; heirloom inquiries<small>Consultations and redesigns</small></button>
+      <button class="tab" role="tab" id="tab-repair" aria-controls="env" data-skill="repair-inquiries" aria-selected="false">Repair inquiries<small>Repairs, resizing, watches, pickups</small></button>
+    </div>
+
+    <div class="env" id="env" role="tabpanel" aria-labelledby="tab-custom">
+      <div class="flap" aria-hidden="true">
+        <svg viewBox="0 0 1000 64" preserveAspectRatio="none"><path d="M0 0 H1000 V22 L540 60 Q500 64 460 60 L0 22 Z" fill="#D9BD84"/><path d="M0 22 L460 60 Q500 64 540 60 L1000 22" fill="none" stroke="#B8975C" stroke-width="1.2" vector-effect="non-scaling-stroke"/></svg>
+        <span class="printed"><b>Showroom</b> job envelope</span>
+        <span class="thread"></span><span class="tie"></span>
+      </div>
+      <div class="form" aria-label="Envelope details">
+        <div class="cell no"><span class="lab">No.</span><span class="val" id="f-no"></span></div>
+        <div class="cell"><span class="lab">Client (fictional)</span><span class="val" id="f-client"></span></div>
+        <div class="cell"><span class="lab">Piece</span><span class="val" id="f-piece"></span></div>
+        <div class="cell"><span class="lab">Asked for</span><span class="val" id="f-work"></span></div>
+        <div class="cell"><span class="lab">Suggested appointment</span><span class="val" id="f-appt"></span></div>
+      </div>
+
+      <div class="bar">
+        <div class="cases" id="cases" aria-label="Sample envelopes"><span>Sample envelopes</span></div>
+        <div class="right">
+          <div class="seg" role="group" aria-label="View">
+            <button type="button" id="v-example" aria-pressed="true">See example</button>
+            <button type="button" id="v-edit" aria-pressed="false">Edit instructions</button>
+          </div>
+          <button type="button" class="dl" id="download">Download for Claude</button>
+        </div>
+      </div>
+
+      <div class="desk" id="desk">
+        <article class="slip">
+          <h3>Client's message, written by us as a sample</h3>
+          <div class="msg" id="msg"></div>
+        </article>
+        <div>
+          <article class="letter">
+            <h3>Draft reply, for Alina to review and send</h3>
+            <div class="body" id="reply"></div>
+          </article>
+          <aside class="note" id="noteBox">
+            <h3 id="noteTitle">Prep note for Alina</h3>
+            <div class="body" id="note"></div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="editor" id="editor">
+        <div class="panel">
+          <fieldset>
+            <legend>Reply length</legend>
+            <div class="opt">
+              <label><input type="radio" name="len" value="short">Shorter</label>
+              <label><input type="radio" name="len" value="std" checked>As recorded</label>
+              <label><input type="radio" name="len" value="long">Longer</label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Note for Alina</legend>
+            <div class="opt">
+              <label><input type="radio" name="note" value="yes" checked>Include</label>
+              <label><input type="radio" name="note" value="no">Leave out</label>
+            </div>
+          </fieldset>
+          <p>Your changes go into the download. The example on the other side stays as it was recorded with the original instructions; Claude writes a new draft when it runs your version.</p>
+          <p>You will get <span class="file" id="fname"></span></p>
+          <div class="status" id="status" role="status" aria-live="polite"></div>
+        </div>
+        <div class="sheet">
+          <label for="src">Instructions Claude follows (SKILL.md)</label>
+          <textarea id="src" spellcheck="true"></textarea>
+        </div>
+      </div>
+
+      <p class="caption" id="caption"></p>
+    </div>
+  </section>
+
+  <section class="use" aria-labelledby="use-h">
+    <h2 id="use-h">Put them to work in Claude Desktop, on your own AWS account</h2>
+    <ol class="steps">
+      <li><h3>Connect Claude to AWS</h3><p>Install Claude Desktop on the showroom computer and point it at Amazon Bedrock: region, model, sign-in. No server to run.</p></li>
+      <li><h3>Add the assistants</h3><p>Upload <a href="downloads/korotkina-coworkers-plugin.zip" download>the plugin with both assistants</a> under Customize, Plugins. One assistant alone uploads under Skills.</p></li>
+      <li><h3>Paste a message</h3><p>Claude picks the matching assistant and returns the draft and the note. Nothing is sent until you send it.</p></li>
+    </ol>
+
+    <div class="facts">
+      <div>
+        <p class="aws">Claude can connect to your AWS account. Model access, region and data settings are checked during setup.</p>
+        <p>The examples above were recorded on 12 October 2026 with Claude Code on a Claude subscription (model claude-sonnet-5-5), in an empty folder with only this plugin loaded. They were not run on Bedrock, where the wording will differ. The same plugin file passes Claude Code's plugin check and loads there; Claude chose the right assistant for all five sample messages. A file edited on this page (shorter, no note) was loaded back the same way and changed the reply as expected. It has not been tried in Claude Desktop yet.</p>
+      </div>
+      <ul class="links">
+        <li><a href="https://github.com/fred1433/korotkina-coworkers/blob/main/docs/install-claude-desktop-bedrock.md">Setup guide: Claude Desktop with Amazon Bedrock, step by step</a></li>
+        <li><a href="https://github.com/fred1433/korotkina-coworkers/blob/main/docs/duplicate-an-assistant.md">Make a third assistant from one of these</a></li>
+        <li><a href="https://github.com/fred1433/korotkina-coworkers/tree/main/verification">The recorded runs and checks</a></li>
+        <li><a href="https://github.com/fred1433/korotkina-coworkers">All files on GitHub</a></li>
+      </ul>
+    </div>
+
+    <div class="call">
+      <p>In 15 minutes we can choose the first workflow and confirm what is already set up in AWS.</p>
+      <a class="btn" href="https://cal.theaipipe.com">Book 15 minutes</a>
+    </div>
+  </section>
+  </main>
+
+  <footer><img src="favicon.svg" alt=""> Independent sample by The AI Pipe. Not affiliated with or endorsed by Alina Korotkina Fine Jewelry. Facts used come from korotkina.com and its public booking page.</footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="data.js"></script>
+<script>
+(function(){
+const D = window.KORO;
+const ORDER = {
+  "custom-heirloom-inquiries": ["01-heirloom-ordinary","02-uncertain-stone-metal"],
+  "repair-inquiries": ["03-urgent-guarantee","04-pickup-unconfirmed","05-pickup-confirmed"]
+};
+const LEN = {"custom-heirloom-inquiries":{short:"about 80 words or fewer",std:"about 130 words or fewer",long:"about 190 words or fewer"},
+             "repair-inquiries":{short:"about 70 words or fewer",std:"about 110 words or fewer",long:"about 170 words or fewer"}};
+const st = {skill:"custom-heirloom-inquiries", cid:"01-heirloom-ordinary", edit:false, text:{...D.skills}, len:{}, note:{}};
+const $ = id => document.getElementById(id);
+
+function esc(s){return s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function inline(s){
+  s = esc(s).replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>");
+  return s.replace(/(https:\/\/[^\s<]+?)([.,)]?)(?=\s|$)/g,'<a href="$1" rel="noopener" target="_blank">$1</a>$2');
+}
+function md(block){
+  const out=[]; let list=null, para=[];
+  const flush=()=>{ if(para.length){out.push("<p>"+para.map(inline).join("<br>")+"</p>");para=[];} };
+  for(const raw of block.split("\n")){
+    const l=raw.trimEnd();
+    if(/^\s*[-*] /.test(l)){ flush(); if(!list){list=[];} list.push("<li>"+inline(l.replace(/^\s*[-*] /,""))+"</li>"); continue; }
+    if(list){ out.push("<ul>"+list.join("")+"</ul>"); list=null; }
+    if(!l.trim()){ flush(); continue; }
+    para.push(l);
+  }
+  flush(); if(list) out.push("<ul>"+list.join("")+"</ul>");
+  return out.join("");
+}
+function split(output){
+  const parts={}; const re=/^## (.+)$/gm; let m, last=null, idx=0;
+  const heads=[]; while((m=re.exec(output))){heads.push({t:m[1].trim(),i:m.index,e:re.lastIndex});}
+  heads.forEach((h,k)=>{ parts[h.t]=output.slice(h.e, k+1<heads.length?heads[k+1].i:output.length).trim(); });
+  return parts;
+}
+function renderCases(){
+  const box=$("cases"); box.querySelectorAll(".chip").forEach(b=>b.remove());
+  ORDER[st.skill].forEach(cid=>{
+    const b=document.createElement("button"); b.type="button"; b.className="chip";
+    b.textContent="No. "+cid.slice(0,2); b.setAttribute("aria-pressed", String(cid===st.cid));
+    b.setAttribute("aria-label","Sample envelope "+cid.slice(0,2)+": "+D.records[cid].piece);
+    b.onclick=()=>{st.cid=cid; render();};
+    box.appendChild(b);
+  });
+}
+function render(){
+  document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected", String(t.dataset.skill===st.skill)));
+  $("env").setAttribute("aria-labelledby", st.skill==="repair-inquiries"?"tab-repair":"tab-custom");
+  renderCases();
+  const r=D.records[st.cid];
+  $("f-no").textContent=st.cid.slice(0,2); $("f-client").textContent=r.client; $("f-piece").textContent=r.piece;
+  $("f-work").textContent=r.work; $("f-appt").textContent=r.appt;
+  $("msg").textContent=r.message;
+  const p=split(r.output);
+  $("reply").innerHTML=md(p["Draft reply"]||"");
+  const nk=Object.keys(p).find(k=>/note for Alina/i.test(k));
+  $("noteTitle").textContent=nk||"Note for Alina"; $("note").innerHTML=md(p[nk]||"");
+  $("caption").innerHTML="<b>Fictional customer request.</b> Recorded Claude result (Claude Code "+r.cc+", "+r.model+", plugin "+r.plugin_version+", assistant chosen by Claude: "+r.skill.join(", ").replace("korotkina-coworkers:","")+"). Draft for review.";
+  document.body.classList.toggle("editing", st.edit);
+  $("env").classList.toggle("editing", st.edit);
+  $("v-example").setAttribute("aria-pressed", String(!st.edit)); $("v-edit").setAttribute("aria-pressed", String(st.edit));
+  if(st.edit){ $("src").value=st.text[st.skill];
+    document.querySelector('input[name=len][value="'+(st.len[st.skill]||"std")+'"]').checked=true;
+    document.querySelector('input[name=note][value="'+(st.note[st.skill]||"yes")+'"]').checked=true;
+    check(); }
+  $("fname").textContent=fileName()+" (folder "+folderName()+"/ with SKILL.md)";
+}
+/* --- instruction transforms --- */
+function setLen(text, v){ return text.replace(/- Length: about \d+ words or fewer\./, "- Length: "+LEN[st.skill][v]+"."); }
+function noteChunk(src){ const m=src.match(/## The (prep|intake) note for Alina[\s\S]*?(?=## Output format)/); return m?m[0]:""; }
+function outFmt(src){ const m=src.match(/## Output format[\s\S]*$/); return m?m[0]:""; }
+const NOTE_PAIRS={
+  "custom-heirloom-inquiries":[["Fine Jewelry, plus a consultation prep note for Alina. Use when","Fine Jewelry. Use when"],["heirloom redesign, and a short prep note for Alina. Nothing","heirloom redesign. Nothing"]],
+  "repair-inquiries":[["Fine Jewelry, plus an intake note for Alina. Use when","Fine Jewelry. Use when"],["watch inquiry, and a short intake note for Alina. Nothing","watch inquiry. Nothing"]]};
+const ONLY_REPLY="## Output format\n\nReturn exactly one section, in Markdown:\n\n## Draft reply\n(the reply)\n";
+function setNote(text, v){
+  const orig=D.skills[st.skill];
+  NOTE_PAIRS[st.skill].forEach(([w,wo])=>{ text = v==="no" ? text.replace(w,wo) : text.replace(wo,w); });
+  if(v==="no"){ text=text.replace(/## The (prep|intake) note for Alina[\s\S]*?(?=## Output format)/,""); text=text.replace(/## Output format[\s\S]*$/, ONLY_REPLY); }
+  else if(!/## The (prep|intake) note for Alina/.test(text)){ text=text.replace(/## Output format[\s\S]*$/, noteChunk(orig)+outFmt(orig)); }
+  return text;
+}
+function front(text){
+  const m=text.match(/^---\n([\s\S]*?)\n---\n/); if(!m) return null;
+  const f={}; m[1].split("\n").forEach(l=>{const i=l.indexOf(":"); if(i>0) f[l.slice(0,i).trim()]=l.slice(i+1).trim();}); return f;
+}
+function folderName(){ const f=front(st.text[st.skill]); return (f&&f.name)||st.skill; }
+function fileName(){ return folderName()+".zip"; }
+function check(){
+  const f=front(st.text[st.skill]); const s=$("status"); let err="";
+  if(!f) err="The file must start with the --- block that holds name and description.";
+  else if(!f.name||!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(f.name)||f.name.length>64) err="The name must use lowercase letters, numbers and hyphens, up to 64 characters.";
+  else if(!f.description) err="The description is missing. Claude reads it to decide when to use the assistant.";
+  else if(f.description.length>1024) err="The description is longer than 1,024 characters.";
+  s.className="status "+(err?"err":"ok"); s.textContent=err||"Ready to download.";
+  $("fname").textContent=fileName()+" (folder "+folderName()+"/ with SKILL.md)";
+  return !err;
+}
+/* --- ZIP (stored, no compression) --- */
+const CRC=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;})();
+function crc32(b){let c=0xFFFFFFFF;for(let i=0;i<b.length;i++)c=CRC[(c^b[i])&255]^(c>>>8);return (c^0xFFFFFFFF)>>>0;}
+function zip(entries){
+  const enc=new TextEncoder(), now=new Date();
+  const dt=((now.getHours()<<11)|(now.getMinutes()<<5)|(now.getSeconds()>>1))&0xFFFF;
+  const dd=(((now.getFullYear()-1980)<<9)|((now.getMonth()+1)<<5)|now.getDate())&0xFFFF;
+  const chunks=[], central=[]; let off=0;
+  for(const e of entries){
+    const name=enc.encode(e.name), data=e.data?enc.encode(e.data):new Uint8Array(0), crc=crc32(data);
+    const h=new DataView(new ArrayBuffer(30));
+    h.setUint32(0,0x04034b50,true);h.setUint16(4,20,true);h.setUint16(6,0x0800,true);h.setUint16(8,0,true);
+    h.setUint16(10,dt,true);h.setUint16(12,dd,true);h.setUint32(14,crc,true);h.setUint32(18,data.length,true);h.setUint32(22,data.length,true);
+    h.setUint16(26,name.length,true);h.setUint16(28,0,true);
+    chunks.push(new Uint8Array(h.buffer),name,data);
+    const c=new DataView(new ArrayBuffer(46));
+    c.setUint32(0,0x02014b50,true);c.setUint16(4,0x031E,true);c.setUint16(6,20,true);c.setUint16(8,0x0800,true);c.setUint16(10,0,true);
+    c.setUint16(12,dt,true);c.setUint16(14,dd,true);c.setUint32(16,crc,true);c.setUint32(20,data.length,true);c.setUint32(24,data.length,true);
+    c.setUint16(28,name.length,true);c.setUint16(30,0,true);c.setUint16(32,0,true);c.setUint16(34,0,true);c.setUint16(36,0,true);
+    c.setUint32(38,(e.dir?(0o40755<<16)|0x10:(0o100644<<16))>>>0,true);c.setUint32(42,off,true);
+    central.push(new Uint8Array(c.buffer),name);
+    off+=30+name.length+data.length;
+  }
+  const csize=central.reduce((a,b)=>a+b.length,0);
+  const end=new DataView(new ArrayBuffer(22));
+  end.setUint32(0,0x06054b50,true);end.setUint16(8,entries.length,true);end.setUint16(10,entries.length,true);
+  end.setUint32(12,csize,true);end.setUint32(16,off,true);
+  return new Blob([...chunks,...central,new Uint8Array(end.buffer)],{type:"application/zip"});
+}
+function download(){
+  if(st.edit && !check()){ toast("Fix the instructions first: "+$("status").textContent); return; }
+  const f=folderName();
+  const blob=zip([{name:f+"/",dir:true},{name:f+"/SKILL.md",data:st.text[st.skill]}]);
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=f+".zip";
+  document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1500);
+  toast("Downloaded "+f+".zip. In Claude, add it under Customize, Skills.");
+}
+let tt; function toast(m){const t=$("toast"); t.textContent=m; t.classList.add("on"); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove("on"),4200);}
+
+/* --- events --- */
+document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>{st.skill=t.dataset.skill; st.cid=ORDER[st.skill][0]; render();}));
+document.querySelector(".tabs").addEventListener("keydown",e=>{ if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft")return;
+  const tabs=[...document.querySelectorAll(".tab")]; const i=tabs.findIndex(t=>t.dataset.skill===st.skill); const n=tabs[(i+1)%2]; n.focus(); n.click(); });
+$("v-example").onclick=()=>{st.edit=false; render();};
+$("v-edit").onclick=()=>{st.edit=true; render();};
+$("download").onclick=download;
+$("src").addEventListener("input",e=>{st.text[st.skill]=e.target.value; check();});
+document.querySelectorAll("input[name=len]").forEach(r=>r.addEventListener("change",()=>{st.len[st.skill]=r.value; st.text[st.skill]=setLen(st.text[st.skill],r.value); $("src").value=st.text[st.skill]; check();}));
+document.querySelectorAll("input[name=note]").forEach(r=>r.addEventListener("change",()=>{st.note[st.skill]=r.value; st.text[st.skill]=setNote(st.text[st.skill],r.value); $("src").value=st.text[st.skill]; check();}));
+render();
+})();
+</script>
+</body>
+</html>

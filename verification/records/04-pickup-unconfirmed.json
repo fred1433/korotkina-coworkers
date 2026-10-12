@@ -1,0 +1,30 @@
+{
+  "case": "04-pickup-unconfirmed",
+  "fictional_client": "June Example",
+  "input": "A client wrote to the showroom. Draft the response for Alina.\n\n---\nHello,\n\nI dropped off my watch for a new battery and a strap a couple of weeks ago. Can I come pick it up Thursday afternoon?\n\nJune",
+  "expected_skill": "repair-inquiries",
+  "skill_invoked": [
+    "korotkina-coworkers:repair-inquiries"
+  ],
+  "output": "## Draft reply\n\nHello June,\n\nThank you for writing. I understand you dropped off your watch a couple of weeks ago for a new battery and a strap, and you'd like to pick it up on Thursday afternoon.\n\nI'll check where your watch stands and write back to you soon. I can't confirm yet that it's ready, and I'd rather not have you make the trip before I know.\n\nCould you tell me the day you dropped it off, and whether you left it with me or with someone else at the showroom? That will help me find it quickly.\n\nWarmly,\nAlina\n\n## Intake note for Alina\n\n- **Reported issue:** June left a watch for a new battery and a strap about two weeks ago. They want to pick it up Thursday afternoon.\n- **Not known yet:** the exact drop-off date, the watch description, and any order details. Nothing in the message says the watch is ready.\n- **Decisions for you:** whether the watch is ready, and whether Thursday afternoon works.\n- **Suggested appointment:** none yet. Once you confirm it's ready, offer a Pick up appointment (10 min).",
+  "model": "claude-sonnet-5-5",
+  "models_used": [
+    "claude-sonnet-5-5"
+  ],
+  "claude_code_version": "2.1.296",
+  "plugin": "korotkina-coworkers",
+  "plugin_version": "1.0.0",
+  "plugin_zip_sha256": "5689a36ac67975f10bd4aad4acebc6e74a8ed8a089aadfe5c9c9a04461d0d97f",
+  "skills_in_context": [
+    "korotkina-coworkers:custom-heirloom-inquiries",
+    "korotkina-coworkers:repair-inquiries",
+    "design",
+    "doctor",
+    "plugin-authoring"
+  ],
+  "tools_in_context": [
+    "Skill"
+  ],
+  "auth": "Claude subscription (OAuth), apiKeySource=none",
+  "recorded_at_utc": "2026-10-12T13:15:22Z"
+}

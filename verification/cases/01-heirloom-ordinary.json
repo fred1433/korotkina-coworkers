@@ -1,0 +1,7 @@
+{
+  "id": "01-heirloom-ordinary",
+  "expected_skill": "custom-heirloom-inquiries",
+  "fictional_client": "Rosalind Sample",
+  "message": "Hello Alina,\n\nMy grandmother left me her engagement ring. It is a small diamond on a thin yellow gold band, and it has sat in a drawer for years because it doesn't really feel like me. I would love to turn it into something I could wear every day, maybe a pendant? I live in Seattle and could come over on the ferry.\n\nRosalind",
+  "prompt": "A client wrote to the showroom. Draft the response for Alina.\n\n---\nHello Alina,\n\nMy grandmother left me her engagement ring. It is a small diamond on a thin yellow gold band, and it has sat in a drawer for years because it doesn't really feel like me. I would love to turn it into something I could wear every day, maybe a pendant? I live in Seattle and could come over on the ferry.\n\nRosalind"
+}

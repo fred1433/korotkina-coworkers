@@ -1,0 +1,30 @@
+{
+  "case": "03-urgent-guarantee",
+  "fictional_client": "Clara Sample",
+  "input": "A client wrote to the showroom. Draft the response for Alina.\n\n---\nHi Alina,\n\nMy wedding band has become too tight and I need it resized before our anniversary dinner on Saturday. Can you guarantee it will be done by Friday?\n\nClara",
+  "expected_skill": "repair-inquiries",
+  "skill_invoked": [
+    "korotkina-coworkers:repair-inquiries"
+  ],
+  "output": "## Draft reply\n\nHi Clara,\n\nThank you for writing. I'm sorry your wedding band has become too tight, and I understand you'd like it comfortable for your anniversary dinner on Saturday.\n\nI can't promise a date before I've seen the ring. Once I've looked at it with you, I'll tell you honestly what is possible for Friday.\n\nThe first step is a short Jewelry Repair appointment at the showroom, where I'll examine the band. You can book here: https://app.acuityscheduling.com/schedule.php?owner=16919152\n\nIs Friday the firm deadline, or is Saturday evening itself the real cutoff?\n\nWarmly,\nAlina\n\n## Intake note for Alina\n\n**Reported issue:** Wedding band has become too tight. Client wants it resized.\n\n**Not known yet:** Metal, stones, and the band's style. Whether it is a simple band or has stones or an eternity setting. No photos.\n\n**Decisions for you:** Whether a Friday finish is realistic, and whether to give Clara a yes or no on the deadline once you've seen the ring.\n\n**Suggested appointment:** Jewelry Repair. It is a resizing and you need to see the ring first.",
+  "model": "claude-sonnet-5-5",
+  "models_used": [
+    "claude-sonnet-5-5"
+  ],
+  "claude_code_version": "2.1.296",
+  "plugin": "korotkina-coworkers",
+  "plugin_version": "1.0.0",
+  "plugin_zip_sha256": "5689a36ac67975f10bd4aad4acebc6e74a8ed8a089aadfe5c9c9a04461d0d97f",
+  "skills_in_context": [
+    "korotkina-coworkers:custom-heirloom-inquiries",
+    "korotkina-coworkers:repair-inquiries",
+    "design",
+    "doctor",
+    "plugin-authoring"
+  ],
+  "tools_in_context": [
+    "Skill"
+  ],
+  "auth": "Claude subscription (OAuth), apiKeySource=none",
+  "recorded_at_utc": "2026-10-12T13:15:12Z"
+}

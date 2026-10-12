@@ -1,0 +1,8 @@
+{
+  "name": "korotkina-coworkers",
+  "displayName": "Korotkina Showroom Assistants",
+  "version": "1.0.0",
+  "description": "Two sample Claude assistants for Alina Korotkina Fine Jewelry: custom and heirloom inquiries, and repair inquiries. Each drafts a short client reply and a note for Alina to review. Nothing is sent automatically.",
+  "author": { "name": "The AI Pipe", "url": "https://theaipipe.com" },
+  "license": "MIT"
+}

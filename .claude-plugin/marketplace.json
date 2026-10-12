@@ -1,0 +1,16 @@
+{
+  "name": "korotkina-showroom",
+  "owner": {
+    "name": "The AI Pipe"
+  },
+  "metadata": {
+    "description": "Sample Claude assistants for Alina Korotkina Fine Jewelry."
+  },
+  "plugins": [
+    {
+      "name": "korotkina-coworkers",
+      "source": "./korotkina-coworkers",
+      "description": "Custom and heirloom inquiries, and repair inquiries: draft replies and notes for Alina to review."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "case": "01-heirloom-ordinary",
+  "fictional_client": "Rosalind Sample",
+  "input": "A client wrote to the showroom. Draft the response for Alina.\n\n---\nHello Alina,\n\nMy grandmother left me her engagement ring. It is a small diamond on a thin yellow gold band, and it has sat in a drawer for years because it doesn't really feel like me. I would love to turn it into something I could wear every day, maybe a pendant? I live in Seattle and could come over on the ferry.\n\nRosalind",
+  "expected_skill": "custom-heirloom-inquiries",
+  "skill_invoked": [
+    "korotkina-coworkers:custom-heirloom-inquiries"
+  ],
+  "output": "## Draft reply\n\nDear Rosalind,\n\nThank you for writing. Your grandmother's ring has stayed with you through the years, and I'd be glad to help you turn it into something you'll wear every day.\n\nI work by appointment, so you'll have my full attention. We begin with a consultation. From there I move to hand sketches, stone selection, CAD renderings and wax molds, and then the finished piece. You're a co-designer throughout.\n\nSince you're coming over on the ferry, I'd suggest the free 30-minute Initial Consultation at my showroom in Winslow. You can choose a time here: https://app.acuityscheduling.com/schedule.php?owner=16919152\n\nTwo questions:\n- Could you bring the ring with you?\n- Is there a date you have in mind for the finished piece?\n\nWarmly,\nAlina\n\n## Prep note for Alina\n\n**Known:** Rosalind has her grandmother's engagement ring: a small diamond on a thin yellow gold band (as described by the client). It has sat unworn because it doesn't feel like them. They want an everyday piece, maybe a pendant. They live in Seattle and can come by ferry.\n\n**Not known yet:** Whether they'll bring the ring. Any date or occasion. Style preferences. Whether they want to keep the band's gold. The stone and metal are unverified.\n\n**Decisions for you:** Whether to ask for photos beforehand. Whether to discuss timing at all before you've seen the ring.\n\n**Suggested appointment:** Initial Consultation (in person), since they can travel and the ring should be seen in person.",
+  "model": "claude-sonnet-5-5",
+  "models_used": [
+    "claude-sonnet-5-5"
+  ],
+  "claude_code_version": "2.1.296",
+  "plugin": "korotkina-coworkers",
+  "plugin_version": "1.0.0",
+  "plugin_zip_sha256": "5689a36ac67975f10bd4aad4acebc6e74a8ed8a089aadfe5c9c9a04461d0d97f",
+  "skills_in_context": [
+    "korotkina-coworkers:custom-heirloom-inquiries",
+    "korotkina-coworkers:repair-inquiries",
+    "design",
+    "doctor",
+    "plugin-authoring"
+  ],
+  "tools_in_context": [
+    "Skill"
+  ],
+  "auth": "Claude subscription (OAuth), apiKeySource=none",
+  "recorded_at_utc": "2026-10-12T13:14:48Z"
+}

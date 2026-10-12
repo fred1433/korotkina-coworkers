@@ -1,0 +1,7 @@
+{
+  "id": "04-pickup-unconfirmed",
+  "expected_skill": "repair-inquiries",
+  "fictional_client": "June Example",
+  "message": "Hello,\n\nI dropped off my watch for a new battery and a strap a couple of weeks ago. Can I come pick it up Thursday afternoon?\n\nJune",
+  "prompt": "A client wrote to the showroom. Draft the response for Alina.\n\n---\nHello,\n\nI dropped off my watch for a new battery and a strap a couple of weeks ago. Can I come pick it up Thursday afternoon?\n\nJune"
+}
